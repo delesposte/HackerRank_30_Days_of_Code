@@ -21,10 +21,9 @@ function readLine() {
 }
 
 function main() {
-    let arr = Array(6);
+    const arr = Array(6);
     for (let i = 0; i < 6; i++) {
         arr[i] = readLine()
-            .replace(/\s+$/g, '')
             .split(' ')
             .map(arrTemp => parseInt(arrTemp, 10));
     }
@@ -32,15 +31,15 @@ function main() {
 }
 
 function getMaxHourglassSum(arr){
-    let max = 0;    
+    const sumHourglasses = [];
     for (let i = 0; arr.length - i >= 3; i++) {
         for (let j = 0; arr[i].length - j >= 3; j++) {
-            const sum = Number([arr[i][j]]) + Number([arr[i][j + 1]]) + 
-                Number([arr[i][j + 2]]) + Number([arr[i + 1][j + 1]]) + 
-                Number([arr[i + 2][j]]) + Number([arr[i + 2][j + 1]]) + 
-                Number([arr[i + 2][j + 2]]);
-            if(sum > max) max = sum;
+            const sum = 
+                Number([arr[i][j]]) + Number([arr[i][j + 1]]) + Number([arr[i][j + 2]]) +
+                Number([arr[i + 1][j + 1]]) + 
+                Number([arr[i + 2][j]]) + Number([arr[i + 2][j + 1]]) + Number([arr[i + 2][j + 2]]);
+            sumHourglasses.push(sum);            
         }
     }  
-    return max;       
+    return Math.max(...sumHourglasses);       
 }
