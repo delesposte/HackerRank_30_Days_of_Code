@@ -31,15 +31,15 @@ function main() {
 }
 
 function getMaxHourglassSum(arr){
-    const sumHourglasses = [];
+    const hourglassesSum = [];
     for (let i = 0; arr.length - i >= 3; i++) {
         for (let j = 0; arr[i].length - j >= 3; j++) {
             const sum = 
                 Number([arr[i][j]]) + Number([arr[i][j + 1]]) + Number([arr[i][j + 2]]) +
                 Number([arr[i + 1][j + 1]]) + 
                 Number([arr[i + 2][j]]) + Number([arr[i + 2][j + 1]]) + Number([arr[i + 2][j + 2]]);
-            sumHourglasses.push(sum);            
+            hourglassesSum.push(sum);            
         }
     }  
-    return Math.max(...sumHourglasses);       
+    return Math.max(...hourglassesSum);       
 }
