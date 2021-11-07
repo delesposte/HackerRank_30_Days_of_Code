@@ -36,7 +36,7 @@ class Student extends Person {
     let sum = 0;
     if (this.scores)
       for (const score of this.scores)
-        sum = sum + Number(score);
+        sum = sum + score;
     const average = sum / this.scores.length;
     if (average >= 90 && average <= 100) return 'O';
     if (average >= 80 && average < 90) return 'E';
